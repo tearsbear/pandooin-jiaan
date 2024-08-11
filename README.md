@@ -20,6 +20,15 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Project Structure
+
+All components used in this project are located in the `app/components` directory. This is where you will find reusable UI elements and other React components that are essential for building the pages.
+
+## Utilities
+
+- API Functions: The API functions that handle external or internal API requests are located in `app/utils/api.js`. This file contains functions for making HTTP requests and interacting with various APIs.
+- Helper Functions: Utility and helper functions that are used throughout the project can be found in `app/utils/helper.js`. These functions are designed to assist with various common tasks, making the codebase more modular and easier to maintain.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

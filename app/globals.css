@@ -2,32 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
+/* import signature font */
+@font-face {
+  font-family: "The Signature";
+  src: url("/assets/fonts/thesignature.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --color1: #d6b66b;
+  --color2: #0b7373;
+  --nav-border-color: white;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.font-signature {
+  font-family: "The Signature", cursive;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.font-unbound-regular {
+  font-weight: 400 !important;
+  font-family: var(--font-unbounded);
+}
+
+.font-unbound-medium {
+  font-weight: 500 !important;
+  font-family: var(--font-unbounded);
+}
+
+.font-unbound-semi {
+  font-weight: 600 !important;
+  font-family: var(--font-unbounded);
+}
+
+.font-unbound-bold {
+  font-weight: 700 !important;
+  font-family: var(--font-unbounded);
+}
+
+.font-albert-regular {
+  font-weight: 400 !important;
+  font-family: var(--font-albert_sans);
+}
+
+.font-albert-medium {
+  font-weight: 500 !important;
+  font-family: var(--font-albert_sans);
+}
+
+.font-albert-semi {
+  font-weight: 600 !important;
+  font-family: var(--font-albert_sans);
+}
+
+.font-albert-bold {
+  font-weight: 700 !important;
+  font-family: var(--font-albert_sans);
+}
+
+.z-color-primary {
+  color: var(--color1);
+}
+
+.z-color-secondary {
+  color: var(--color2);
+}
+
+.bg-color-primary {
+  background-color: var(--color1) !important;
+}
+
+.z-border-primary {
+  border: 1px solid var(--color1);
+}
+
+.scrolled {
+  --nav-border-color: var(--color2);
+}
+
+nav ul li a {
+  @apply relative pb-2 mt-3 block;
+}
+
+.nav-active a::after {
+  @apply content-[''] absolute left-0 bottom-0 top-[30px] w-full h-0.5 bg-nav-border;
+}
+
+nav ul li a::after {
+  @apply content-[''] absolute left-0 bottom-0 top-[30px] h-0.5 bg-nav-border;
+  width: 0%;
+  transition-property: width;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+  overflow: hidden;
+}
+
+nav ul li:first-child a::after,
+nav ul li a:hover::after {
+  width: 100%;
 }
